@@ -1,0 +1,233 @@
+# Node.js Microservices Practice Project
+
+This project demonstrates a **basic microservices architecture** using **Node.js and Express.js**.
+Each service runs independently on a **different port** and can be started in **separate terminals**.
+
+The project was developed as part of **backend practice tasks during internship training**.
+
+---
+
+# 📂 Project Structure
+
+```
+node-microservices-tasks
+│
+├── student-service
+│     └── server.js
+│
+├── course-service
+│     └── server.js
+│
+├── college-service
+│     └── server.js
+│
+├── package.json
+└── README.md
+```
+
+Each folder represents a **separate microservice**.
+
+---
+
+# 🚀 Services Overview
+
+| Service         | Port | Description                     |
+| --------------- | ---- | ------------------------------- |
+| Student Service | 3001 | Handles student CRUD operations |
+| Course Service  | 3002 | Manages course data             |
+| College Service | 3003 | Manages college data            |
+
+Each service runs **independently** and exposes its own API endpoints.
+
+---
+
+# 🧑‍🎓 Student Service
+
+Base URL:
+
+```
+http://localhost:3001
+```
+
+Endpoints:
+
+| Method | Endpoint      | Description       |
+| ------ | ------------- | ----------------- |
+| GET    | /students     | Get all students  |
+| GET    | /students/:id | Get student by ID |
+| POST   | /students     | Add new student   |
+
+Example Student Object:
+
+```
+{
+  "id": 1,
+  "name": "Rahul",
+  "age": 20
+}
+```
+
+---
+
+# 📚 Course Service
+
+Base URL:
+
+```
+http://localhost:3002
+```
+
+Endpoints:
+
+| Method | Endpoint | Description     |
+| ------ | -------- | --------------- |
+| GET    | /courses | Get all courses |
+| POST   | /courses | Add new course  |
+
+Example Course Object:
+
+```
+{
+  "id": 1,
+  "title": "Node.js"
+}
+```
+
+---
+
+# 🏫 College Service
+
+Base URL:
+
+```
+http://localhost:3003
+```
+
+Endpoints:
+
+| Method | Endpoint  | Description      |
+| ------ | --------- | ---------------- |
+| GET    | /colleges | Get all colleges |
+| POST   | /colleges | Add new college  |
+
+Example College Object:
+
+```
+{
+  "id": 1,
+  "name": "MIT Mysore"
+}
+```
+
+---
+
+# ⚙️ Installation
+
+Clone the repository:
+
+```
+git clone https://github.com/yourusername/node-microservices-tasks.git
+```
+
+Move into the project folder:
+
+```
+cd node-microservices-tasks
+```
+
+Install dependencies:
+
+```
+npm install express
+```
+
+---
+
+# ▶️ Running the Services
+
+Open **three terminals** and run each service separately.
+
+### Terminal 1 – Student Service
+
+```
+cd student-service
+node server.js
+```
+
+Runs on:
+
+```
+http://localhost:3001
+```
+
+---
+
+### Terminal 2 – Course Service
+
+```
+cd course-service
+node server.js
+```
+
+Runs on:
+
+```
+http://localhost:3002
+```
+
+---
+
+### Terminal 3 – College Service
+
+```
+cd college-service
+node server.js
+```
+
+Runs on:
+
+```
+http://localhost:3003
+```
+
+---
+
+# 🧪 API Testing
+
+All APIs were tested using **Postman** to verify request and response behavior.
+
+Example request:
+
+```
+GET http://localhost:3001/students
+```
+
+---
+
+# 📚 Learning Outcomes
+
+Through this project I learned:
+
+* Building REST APIs using **Node.js and Express**
+* Understanding **microservices architecture basics**
+* Running **multiple services on different ports**
+* Testing APIs using **Postman**
+* Organizing backend projects in a structured way
+
+---
+
+# 🛠 Technologies Used
+
+* Node.js
+* Express.js
+* REST APIs
+* Postman
+
+---
+
+# 👨‍💻 Author
+
+Dhakshath UK
+4AD22CI010
+Intern
+Geekwick TechMedia Services
