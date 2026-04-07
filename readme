@@ -1,123 +1,134 @@
-# Node.js Microservices Practice Project
+# 🚀 Node.js Microservices Practice Project (Advanced)
 
-This project demonstrates a **basic microservices architecture** using **Node.js and Express.js**.
-Each service runs independently on a **different port** and can be started in **separate terminals**.
+This project demonstrates an **intermediate to advanced microservices architecture** using:
 
-The project was developed as part of **backend practice tasks during internship training**.
+- Node.js  
+- Express.js  
+- MongoDB (Mongoose)  
+- MVC Pattern  
+- Validation & Error Handling  
+
+Each service runs independently on a **different port**, follows a **clean architecture**, and connects to **MongoDB**.
+
+This project was developed as part of backend practice tasks during internship training.
 
 ---
 
 # 📂 Project Structure
 
-```
 node-microservices-tasks
 │
-├── student-service
-│     └── server.js
+├── inventory-service
+│   ├── config/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── services/
+│   ├── middlewares/
+│   ├── validators/
+│   ├── server.js
+│   └── .env
+│
+├── store-service
+│   └── server.js
 │
 ├── course-service
-│     └── server.js
+│   └── server.js
 │
 ├── college-service
-│     └── server.js
+│   └── server.js
 │
 ├── package.json
 └── README.md
-```
 
-Each folder represents a **separate microservice**.
-
----
-
-# 🚀 Services Overview
-
-| Service         | Port | Description                     |
-| --------------- | ---- | ------------------------------- |
-| Student Service | 3001 | Handles student CRUD operations |
-| Course Service  | 3002 | Manages course data             |
-| College Service | 3003 | Manages college data            |
-
-Each service runs **independently** and exposes its own API endpoints.
+Each folder represents a separate microservice.
 
 ---
 
-# 🧑‍🎓 Student Service
+# 🧩 Services Overview
+
+| Service           | Port | Description                         |
+|------------------|------|-------------------------------------|
+| Inventory Service| 3005 | Advanced CRUD with MongoDB & MVC    |
+| Store Service    | 3004 | Store management (CRUD - Express)   |
+| Course Service   | 3002 | Manages course data                 |
+| College Service  | 3003 | Manages college data                |
+
+---
+
+# 📦 Inventory Service (Advanced)
 
 Base URL:
+http://localhost:3005
 
-```
-http://localhost:3001
-```
+Features:
+- MongoDB integration using Mongoose
+- MVC Architecture
+- Input validation using express-validator
+- Centralized error handling
+- Full CRUD operations
 
 Endpoints:
 
-| Method | Endpoint      | Description       |
-| ------ | ------------- | ----------------- |
-| GET    | /students     | Get all students  |
-| GET    | /students/:id | Get student by ID |
-| POST   | /students     | Add new student   |
+| Method | Endpoint        | Description              |
+|--------|---------------|--------------------------|
+| GET    | /inventory     | Get all items            |
+| GET    | /inventory/:id | Get item by ID           |
+| POST   | /inventory     | Create new item          |
+| PUT    | /inventory/:id | Update item              |
+| DELETE | /inventory/:id | Delete item              |
 
-Example Student Object:
+Example Inventory Object:
 
-```
 {
-  "id": 1,
-  "name": "Rahul",
-  "age": 20
+  "_id": "661234abcd1234",
+  "product": "Rice",
+  "quantity": 50,
+  "storeId": 1,
+  "createdAt": "2026-04-07T10:00:00Z",
+  "updatedAt": "2026-04-07T10:00:00Z"
 }
-```
+
+---
+
+# 🏬 Store Service
+
+Base URL:
+http://localhost:3004
+
+Endpoints:
+
+| Method | Endpoint     | Description      |
+|--------|-------------|------------------|
+| GET    | /stores      | Get all stores   |
+| GET    | /stores/:id  | Get store by ID  |
+| POST   | /stores      | Create store     |
+| PUT    | /stores/:id  | Update store     |
+| DELETE | /stores/:id  | Delete store     |
 
 ---
 
 # 📚 Course Service
 
 Base URL:
-
-```
 http://localhost:3002
-```
-
-Endpoints:
 
 | Method | Endpoint | Description     |
-| ------ | -------- | --------------- |
+|--------|---------|-----------------|
 | GET    | /courses | Get all courses |
 | POST   | /courses | Add new course  |
-
-Example Course Object:
-
-```
-{
-  "id": 1,
-  "title": "Node.js"
-}
-```
 
 ---
 
 # 🏫 College Service
 
 Base URL:
-
-```
 http://localhost:3003
-```
-
-Endpoints:
 
 | Method | Endpoint  | Description      |
-| ------ | --------- | ---------------- |
+|--------|-----------|------------------|
 | GET    | /colleges | Get all colleges |
 | POST   | /colleges | Add new college  |
-
-Example College Object:
-
-```
-{
-  "id": 1,
-  "name": "MIT Mysore"
-}
-```
 
 ---
 
@@ -125,109 +136,125 @@ Example College Object:
 
 Clone the repository:
 
-```
 git clone https://github.com/yourusername/node-microservices-tasks.git
-```
 
 Move into the project folder:
 
-```
 cd node-microservices-tasks
-```
 
 Install dependencies:
 
-```
-npm install express
-```
+npm install
+
+---
+
+# 🧪 Environment Setup
+
+Create .env file inside inventory-service:
+
+MONGO_URI=mongodb://127.0.0.1:27017/inventoryDB
 
 ---
 
 # ▶️ Running the Services
 
-Open **three terminals** and run each service separately.
+Open multiple terminals and run each service separately.
 
-### Terminal 1 – Student Service
+Terminal 1 – Inventory Service:
 
-```
-cd student-service
+cd inventory-service
 node server.js
-```
 
 Runs on:
-
-```
-http://localhost:3001
-```
+http://localhost:3005
 
 ---
 
-### Terminal 2 – Course Service
+Terminal 2 – Store Service:
 
-```
+cd store-service
+node server.js
+
+Runs on:
+http://localhost:3004
+
+---
+
+Terminal 3 – Course Service:
+
 cd course-service
 node server.js
-```
 
 Runs on:
-
-```
 http://localhost:3002
-```
 
 ---
 
-### Terminal 3 – College Service
+Terminal 4 – College Service:
 
-```
 cd college-service
 node server.js
-```
 
 Runs on:
-
-```
 http://localhost:3003
-```
 
 ---
 
 # 🧪 API Testing
 
-All APIs were tested using **Postman** to verify request and response behavior.
+All APIs were tested using Postman.
 
-Example request:
+Example:
 
-```
-GET http://localhost:3001/students
-```
+POST http://localhost:3005/inventory
+
+Body:
+
+{
+  "product": "Rice",
+  "quantity": 50,
+  "storeId": 1
+}
 
 ---
 
 # 📚 Learning Outcomes
 
-Through this project I learned:
-
-* Building REST APIs using **Node.js and Express**
-* Understanding **microservices architecture basics**
-* Running **multiple services on different ports**
-* Testing APIs using **Postman**
-* Organizing backend projects in a structured way
+- Building REST APIs using Node.js & Express  
+- Designing Microservices Architecture  
+- Using MongoDB with Mongoose  
+- Implementing MVC Pattern  
+- Writing clean and scalable backend code  
+- Handling errors and validations properly  
+- Testing APIs using Postman  
 
 ---
 
 # 🛠 Technologies Used
 
-* Node.js
-* Express.js
-* REST APIs
-* Postman
+- Node.js  
+- Express.js  
+- MongoDB  
+- Mongoose  
+- express-validator  
+- REST APIs  
+- Postman  
+
+---
+
+# 🔥 Future Improvements
+
+- Inter-service communication (Axios)  
+- JWT Authentication  
+- API Gateway  
+- Docker containerization  
+- Deployment (AWS / Render)  
 
 ---
 
 # 👨‍💻 Author
 
-Dhakshath UK
-4AD22CI010
-Intern
-Geekwick TechMedia Services
+Dhakshath UK  
+4AD22CI010  
+Intern  
+Geekwick TechMedia Services  
